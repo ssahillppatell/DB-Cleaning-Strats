@@ -7,7 +7,7 @@ try:
 
 	with conn.cursor(cursor_factory=psycopg2.extras.DictCursor) as cur:
 		cur.execute("SELECT name FROM category;")
-		print(cur.fetchall());
+		print(cur.fetchall())
 	
 	conn.commit()
 
