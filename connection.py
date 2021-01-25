@@ -2,8 +2,24 @@ from tkinter import Tk, Label, Canvas, Entry, Button, ttk, Frame, DISABLED
 
 from functions.checkoutOne import checkoutOne
 
+transactionData = {}
+
+def printOutput(data):
+	customerOutput.config(text = data['full_name'])
+	filmOutput.config(text = data['film_title'])
+	rentalDateOutput.config(text = data['rental_date'].date())
+	rentalPeriodOutput.config(text = f"{data['rental_duration']} days")
+	costOutput.config(text = f"$ {data['rental_rate']}")
+
+	if(int(data['rental_date'].strftime("%d")) + int(data['rental_duration']) < 32):
+		isLateOutput.config(text = "Yes")
+	else:
+		isLateOutput.config(text = "No")
+
 def takeInput(id):
-	checkoutOne(id)
+	transactionData = checkoutOne(id)
+	print(transactionData)
+	printOutput(transactionData)
 
 root = Tk()
 
@@ -55,23 +71,29 @@ costLabel.grid(column = 0, row = 8)
 
 #############
 
+global customerOutput
 customerOutput = Label(frameOne, text = "-")
-customerOutput.grid(column = 3, row = 3)
+customerOutput.grid(columnspan = 2, column = 3, row = 3)
 
+global filmOutput
 filmOutput = Label(frameOne, text = "-")
-filmOutput.grid(column = 3, row = 4)
+filmOutput.grid(columnspan = 2, column = 3, row = 4)
 
+global rentalDateOutput
 rentalDateOutput = Label(frameOne, text = "-")
-rentalDateOutput.grid(column = 3, row = 5)
+rentalDateOutput.grid(columnspan = 2, column = 3, row = 5)
 
+global rentalPeriodOutput
 rentalPeriodOutput = Label(frameOne, text = "-")
-rentalPeriodOutput.grid(column = 3, row = 6)
+rentalPeriodOutput.grid(columnspan = 2, column = 3, row = 6)
 
+global isLateOutput
 isLateOutput = Label(frameOne, text = "-")
-isLateOutput.grid(column = 3, row = 7)
+isLateOutput.grid(columnspan = 2, column = 3, row = 7)
 
+global costOutput
 costOutput = Label(frameOne, text = "-")
-costOutput.grid(column = 3, row = 8)
+costOutput.grid(columnspan = 2, column = 3, row = 8)
 
 printBillButton = Button(frameOne, text = "Print Bill", bg = "#5877C9", fg = "white", width = 50)
 printBillButton.grid(columnspan = 8, column = 0, row = 9)
