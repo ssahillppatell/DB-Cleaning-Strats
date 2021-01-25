@@ -10,7 +10,7 @@
 - postgresql: [Install](https://www.postgresql.org/) 
 
 #### Get Started:
-Make a `.env` file like `.env.example`
+Make a `.env` file like `.env.example`  
 Import Database:
 - Linux: `pg_restore -c -i -U <username> -d dvdrental -v "/location/to/dvdrental.tar" -W`
 - Windows: Import via pgadmin
