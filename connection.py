@@ -2,6 +2,9 @@ from tkinter import Tk, Label, Canvas, Entry, Button, ttk, Frame, DISABLED
 
 from functions.checkoutOne import checkoutOne
 
+def takeInput(id):
+	checkoutOne(id)
+
 root = Tk()
 
 # Defining Notebook and Frames
@@ -24,7 +27,7 @@ rentalIdLabel.grid(columnspan = 3, column = 0, row = 0)
 rentalId = Entry(frameOne, width = 30)
 rentalId.grid(columnspan = 3, column = 4, row = 0)
 
-actionBtn = Button(frameOne, text="Checkout", command = lambda:checkoutOne(rentalId.get()), bg = "#2eac2b", fg = "white")
+actionBtn = Button(frameOne, text="Checkout", command = lambda:takeInput(rentalId.get()), bg = "#2eac2b", fg = "white")
 actionBtn.grid(column = 4, row = 1)
 
 ################
@@ -74,13 +77,13 @@ printBillButton = Button(frameOne, text = "Print Bill", bg = "#5877C9", fg = "wh
 printBillButton.grid(columnspan = 8, column = 0, row = 9)
 
 # Widgets of FrameDaily
-canvas = Canvas(frameDaily, width = 400, height = 300)
-canvas.grid(columnspan = 5, rowspan = 5)
+canvas2 = Canvas(frameDaily, width = 400, height = 300)
+canvas2.grid(columnspan = 5, rowspan = 5)
 
-rentalId = Entry(frameDaily)
-rentalId.grid(column = 1, row = 0)
+rentalId2 = Entry(frameDaily)
+rentalId2.grid(column = 1, row = 0)
 
-actionBtn = Button(frameDaily, text="Transact", command = lambda:checkoutOne(rentalId.get()))
-actionBtn.grid(column = 1, row = 1)
+actionBtn2 = Button(frameDaily, text="Transact", command = lambda:checkoutOne(rentalId.get()))
+actionBtn2.grid(column = 1, row = 1)
 
 root.mainloop()

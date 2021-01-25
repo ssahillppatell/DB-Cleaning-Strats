@@ -17,7 +17,7 @@ def checkoutOne(id):
 
 		with conn.cursor(cursor_factory=psycopg2.extras.DictCursor) as cur:
 			cur.execute(f" \
-				SELECT * FROM rental \
+				SELECT customer_id FROM rental \
 				WHERE rental_id = {id} \
 			")
 			print(cur.fetchall())
