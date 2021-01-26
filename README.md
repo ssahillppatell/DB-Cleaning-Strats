@@ -18,5 +18,5 @@ Import Database:
 ```
 pipenv shell
 pipenv install
-python connection.py
+python app.py
 ```
