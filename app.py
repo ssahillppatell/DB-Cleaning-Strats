@@ -1,5 +1,6 @@
 from tkinter import Tk, Label, Canvas, Entry, Button, ttk, Frame, DISABLED
 from utils.checkoutOne import checkoutOne
+from utils.checkoutDaily import checkoutDaily
 from utils.MyNotebook import MyNotebook
 from utils.MyTab import MyTab
 
@@ -17,5 +18,6 @@ myNotebook.addTab(frameOne, "Checkout One")
 myNotebook.addTab(frameDaily, "Checkout Daily")
 
 tabOne.getBtn().config(command = lambda:tabOne.setResult(checkoutOne(tabOne.getId().get())))
+tabDaily.getBtn().config(command = lambda:tabDaily.setResult(checkoutDaily(tabDaily.getId().get())))
 
 root.mainloop()
