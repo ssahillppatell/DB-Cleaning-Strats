@@ -11,7 +11,7 @@ dbHost = os.environ.get('DB_HOST')
 dbPort = os.environ.get('DB_PORT')
 dbName = os.environ.get('DB_NAME')
 
-def deleteDaily():
+def deleteRegularly():
 	with open('daily.txt', 'r+') as myFile:
 		for line in myFile:
 			try:
@@ -34,4 +34,4 @@ def deleteDaily():
 					print("PostgreSQL connection is closed")
 					myFile.truncate(0)
 
-deleteDaily()
+deleteRegularly()

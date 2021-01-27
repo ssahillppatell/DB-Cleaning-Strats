@@ -11,7 +11,7 @@ dbHost = os.environ.get('DB_HOST')
 dbPort = os.environ.get('DB_PORT')
 dbName = os.environ.get('DB_NAME')
 
-def checkoutDaily(id):
+def checkoutRegularly(id):
 	result = {}
 	try:
 		conn = psycopg2.connect(user=dbUser, password=dbPass, host=dbHost, port=dbPort, database=dbName)
