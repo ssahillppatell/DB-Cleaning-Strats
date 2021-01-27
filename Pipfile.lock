@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "9519e86625527a75354049bddc9befa3516f34c275d57056a31329af0d3e9580"
+            "sha256": "91a1b57867dfa489e0e1fa6e6676121b05a5debf425a0201f86c9f5f2b00a25d"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -16,6 +16,15 @@
         ]
     },
     "default": {
+        "fpdf": {
+            "hashes": [
+                "sha256:0a94eb783ee933e32a44ad949a1aa6c3ca6fb35b608db53f8b216aec52fc1fb5",
+                "sha256:125840783289e7d12552b1e86ab692c37322e7a65b96a99e0ea86cca041b6779",
+                "sha256:9542f6ad0791d673955da954a0cf3554a0affac79deab87bee06b9b4d4e60990"
+            ],
+            "index": "pypi",
+            "version": "==1.7.2"
+        },
         "psycopg2": {
             "hashes": [
                 "sha256:00195b5f6832dbf2876b8bf77f12bdce648224c89c880719c745b90515233301",

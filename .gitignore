@@ -2,3 +2,4 @@
 .env
 daily.txt
 cron.bat
+*.pdf

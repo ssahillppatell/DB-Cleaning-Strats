@@ -1,4 +1,5 @@
 from tkinter import Frame, Label, Entry, Button
+from utils.printBill import printBill
 
 class MyTab:
 	def __init__(self, mount):
@@ -20,7 +21,8 @@ class MyTab:
 			Label(self.frame, text = i).grid(column = 0, row = index)
 			Label(self.frame, text = "-").grid(column = 1, row = index)
 		
-		Button(self.frame, text = "Print the Bill", bg = "#5877C9", fg = "white").grid(columnspan = 3, column = 0, row = 9, sticky = "we")
+		self.printBtn = Button(self.frame, text = "Print the Bill", bg = "#5877C9", fg = "white")
+		self.printBtn.grid(columnspan = 3, column = 0, row = 9, sticky = "we")
 	
 	def getFrame(self):
 		return self.frame
@@ -41,3 +43,5 @@ class MyTab:
 			isLate = "Yes"
 		Label(self.frame, text = f"{isLate}").grid(column = 1, row = 7)
 		Label(self.frame, text = f"$ {data['rental_rate']}").grid(column = 1, row = 8)
+
+		self.printBtn.config(command = printBill(data))
