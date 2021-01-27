@@ -20,3 +20,7 @@ pipenv shell
 pipenv install
 python app.py
 ```
+
+To schedule the cron job:  
+- Windows: Use `Task Scheduler` and make a `cron.bat` file as described in `cron.bat.example`
+- Linux: Use `crontab`

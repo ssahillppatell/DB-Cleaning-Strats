@@ -4,8 +4,6 @@ import psycopg2.extras
 from psycopg2 import Error
 from dotenv import load_dotenv
 
-todaysTransaction = []
-
 load_dotenv()
 dbUser = os.environ.get('DB_USER')
 dbPass = os.environ.get('DB_PASS')
@@ -51,9 +49,8 @@ def checkoutDaily(id):
 			fullName = f"{firstName} {lastName}"
 			result['full_name'] = fullName
 
-			
-			todaysTransaction.append(id)
-			print(todaysTransaction)
+			with open("daily.txt", "a") as myfile:
+				myfile.write(f"{id}\n")
 			return result
 		
 		conn.commit()
