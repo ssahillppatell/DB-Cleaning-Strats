@@ -1,4 +1,4 @@
 .vscode
 .env
 daily.txt
-cron.py
+cron.bat
