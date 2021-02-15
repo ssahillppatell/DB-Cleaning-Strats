@@ -158,8 +158,8 @@ with open('daily.txt', 'r+') as myFile:
 ```
 
 ### Final Result
-Final Application:
-![ERD](./assets/Ui-tkinter.PNG)
+Final Application: 
+![UI](./assets/UI-tkinter.PNG)
 
 ### Learning Outcomes
 - Various new concepts of databases
