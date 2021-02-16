@@ -81,16 +81,46 @@ This sample database can have multiple different situations in which it requires
 And many more...
 But we will focus on the last scenario.
 
+### Sample Queries
+-  How many distinct users have rented each genre?
+```
+SELECT c.name AS Genre, count(DISTINCT cu.customer_id) AS Total_rent_demand
+FROM category c
+JOIN film_category fc
+USING(category_id)
+JOIN film f
+USING(film_id)
+JOIN inventory i
+USING(film_id)
+JOIN rental r
+USING(inventory_id)
+JOIN customer cu
+USING(customer_id)
+```
+- Average rental rate for each genre:
+```
+SELECT c.name AS genre, ROUND(AVG(f.rental_rate),2) AS Average_rental_rate
+FROM category c
+JOIN film_category fc
+USING(category_id)
+JOIN film f
+USING(film_id)
+```
+
 ### Problem Statement
 Make a gui based application to handle the transactions in which customer returns the dvd he rented. This application shoul have two modes of deleting the data from the database, first mode: instantly and second moed: after an interval. After the successful transaction it should be able to print a bill too.
 
-UI design:
+UI design:  
 ![UI](./assets/Db-Figma.PNG)
 
 ### Procedure
 
 In our sample database there are two stores namely, store 1 and store 2. And they share a common rental record table. The schema of which is as follows:
 `rental_id, rental_date, inventory_id, customer_id, return_date, staff_id, last_update`
+
+When a customer comes back to return the dvd, he/she is identified using the `customer_id`.
+We use `customer_id` to get the name of the customer. `inventory_id` is used to get the `film_id` which in turn is used to get the Film name and the rental cost.
+Since the dataset is quite old and we cannot compare the returning date with today's date that's why we have chosen rental date + 7 days as our criteria for late return.
 
 To extract the information of a user who comes to return the dvd:
 ```
@@ -158,7 +188,7 @@ with open('daily.txt', 'r+') as myFile:
 ```
 
 ### Final Result
-Final Application: 
+Final Application:  
 ![UI](./assets/UI-tkinter.PNG)
 
 ### Learning Outcomes
